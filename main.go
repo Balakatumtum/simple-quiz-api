@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Balakatumtum/simple-go-crud-api/database"
+	"github.com/Balakatumtum/simple-quiz-api/database"
 	"github.com/gin-gonic/gin"
 )
 
