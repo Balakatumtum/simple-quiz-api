@@ -9,12 +9,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// curl localhost:3000/exampaper
+// show user list of questions and answers
 func ShowPaper(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, database.ExamPaper)
 }
 
-// curl localhost:3000/exampaper --include --header "Content-Type: application/json" -d @extraquestion.json --request "POST"
+// user able to add extra questions
 func AddQuestion(c *gin.Context) {
 	var newq database.Question
 	if err := c.BindJSON(&newq); err != nil {
@@ -24,7 +24,7 @@ func AddQuestion(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newq)
 }
 
-// curl "localhost:3000/input?answer=..." --request "POST"
+// query user's answers in accordance to the number of questions
 func Query_UserAnswers(c *gin.Context) {
 	var User_input []string
 	leng := len(database.ExamPaper)
@@ -36,6 +36,7 @@ func Query_UserAnswers(c *gin.Context) {
 	CheckAnswers(c, User_input)
 }
 
+// loop user's answers to match keyanswers, if so score will be added
 func CheckAnswers(c *gin.Context, jawaban []string) {
 	score := 0
 	leng := len(database.ExamPaper)
@@ -52,6 +53,5 @@ func main() {
 	router.GET("/exampaper", ShowPaper)
 	router.POST("/exampaper", AddQuestion)
 	router.POST("/input", Query_UserAnswers)
-	router.GET("/result")
-	router.Run("localhost:3000")
+	router.Run("localhost:3000") //runs on post 3000
 }
