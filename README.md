@@ -18,7 +18,7 @@ Input your answers in accordance to the current number of available questions
 exec: curl "localhost:3000/input?answer1=..&answer2=.." --request "POST"
 
 an example using the default database without extra questions would be like  
-exec: curl "localhost:3000/input?answer1=7&answer2=39&answer3=VARITAS!&answer4=UI" --request "POST"
+exec: curl "localhost:3000/input?answer1=7&answer2=39&answer3=HYGGE!&answer4=Advancing+Humanity" --request "POST"
 
 # addquestion
 Add question to the database, create a json file do  
