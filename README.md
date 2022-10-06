@@ -25,4 +25,4 @@ Add question to the database, create a json file do
 exec: curl localhost:3000/exampaper --include --header "Content-Type: application/json" -d @file_name.json --request "POST"
 
 example using json file within the /database/extraquestion.json would be:  
-exec: curl localhost:3000/exampaper --include --header "Content-Type: application/json" -d @file_name.json --request "POST"
+exec: curl localhost:3000/exampaper --include --header "Content-Type: application/json" -d @extraquestion.json --request "POST"
